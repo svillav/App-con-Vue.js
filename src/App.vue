@@ -30,9 +30,12 @@ export default {
 
 <style>
 body {
-  background: linear-gradient(to bottom, rgb(255, 255, 255), #999);
+  background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0, 0, 0));
   background-attachment: fixed;
 }
+</style>
+
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
