@@ -1,5 +1,16 @@
 <template>
   <div id="app">
+    <!-- Root Foo: {{rootFoo}}
+    <br />
+    Robots Foo: {{robotsFoo}}
+    <br />
+    Users Foo: {{usersFoo}}
+    <br />
+    <br />
+    Root Getter Foo: {{rootGetterFoo}}
+    <br />
+    Robots Getter Foo: {{robotsGetterFoo}}
+    <br /> -->
     <header>
       <nav>
         <ul>
@@ -12,7 +23,7 @@
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'Build' }" exact>Build</router-link>
           </li>
-          <li class="nav-item cart ">
+          <li class="nav-item cart">
             <router-link class="nav-link" to="/cart" exact>Cart</router-link>
             <div class="cart-items">{{cart.length}}</div>
           </li>
@@ -31,9 +42,18 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex';
+
 export default {
   name: 'App',
   computed: {
+    ...mapState({
+      rootFoo: 'foo',
+      usersFoo: (state) => state.users.foo,
+    }),
+    ...mapState('robots', { robotsFoo: 'foo' }),
+    ...mapGetters({ rootGetterFoo: 'foo' }),
+    ...mapGetters('robots', { robotsGetterFoo: 'foo' }),
     cart() {
       return this.$store.state.robots.cart;
     },
