@@ -9,6 +9,6 @@ module.exports = {
   },
   rules: {
     'linebreak-style': 0,
-    'no-param-reassing': 0
+    'no-param-reassing': 0,
   },
 };
